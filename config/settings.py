@@ -38,9 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
+    'graphql_jwt.refresh_token.apps.RefreshTokenConfig',
+    'graphql_auth',
     'apps.user',
     'apps.decks',
     'apps.cards', 
+    'apps.schema',
 
 ]
 
@@ -138,5 +141,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'user.User'
 
 GRAPHENE = {
-    'SCHEMA' : 'apps.schema.schema.Schema'
+    'SCHEMA' : 'apps.schema.schema.schema',
+    'MODDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],    
 }
+
+AUTHENTICATION_BACKENDS=[
+    'graphql_auth.backend.GraphQLAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]

@@ -10,6 +10,8 @@ Django = "^3.2.5"
 djangorestframework = "^3.12.4"
 psycopg2 = "^2.9.1"
 graphene-django = "^2.15.0"
+django-graphql-auth = "^0.3.16"
+
 
 
 

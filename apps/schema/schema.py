@@ -93,4 +93,4 @@ class Query(graphene.ObjectType):
     def resolve_cards(self, info):
         return CardModel.objects.all()
         
-Schema = graphene.Schema(query=Query, mutation = Mutation)
+schema = graphene.Schema(query=Query, mutation = Mutation)
